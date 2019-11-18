@@ -15,4 +15,13 @@ def TriangleArea(x,y):
 def FeetToMeters(x):
     y = float(x*.3048)
     PrintOutput(y)
-
+def PolarCoords(x,y):
+    import math
+    x = float(x)
+    y = float(y)
+    r = math.sqrt((x**2)+(y**2))
+    theta = math.atan(y/x)
+    theta = (theta * 180)/3.141592
+    theta = round(theta,1)
+    PrintOutput2('r:',r)
+    PrintOutput2('theta:',theta)
