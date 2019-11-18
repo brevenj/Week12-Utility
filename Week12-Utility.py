@@ -11,3 +11,8 @@ def PrintOutput2(y,x):
 def TriangleArea(x,y):
     z = float((x*y)/2)
     PrintOutput(z)
+
+def FeetToMeters(x):
+    y = float(x*.3048)
+    PrintOutput(y)
+
