@@ -7,3 +7,7 @@ def PrintOutput(x):
     
 def PrintOutput2(y,x):
     print('OUTPUT',y,x)
+
+def TriangleArea(x,y):
+    z = float((x*y)/2)
+    PrintOutput(z)
