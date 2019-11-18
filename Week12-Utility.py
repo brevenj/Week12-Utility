@@ -25,3 +25,8 @@ def PolarCoords(x,y):
     theta = round(theta,1)
     PrintOutput2('r:',r)
     PrintOutput2('theta:',theta)
+    
+def EurosToDollars(x):
+    x = x*1.12
+    x = round(x,2)
+    PrintOutput(x)
