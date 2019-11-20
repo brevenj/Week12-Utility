@@ -1,32 +1,77 @@
-#Breven Jackson
-#CS - 102
-#Week12 - Utility
+        #YOUR GITHUB REPOSITORY
+        #Breven Jackson
+        #CSCI 102
+        #Week 11 - Part B 
 
 def PrintOutput(x):
-    print('OUTPUT',x)
-    
-def PrintOutput2(y,x):
-    print('OUTPUT',y,x)
+    print("OUTPUT",x)
 
-def TriangleArea(x,y):
-    z = float((x*y)/2)
-    PrintOutput(z)
+def LoadFile(file):
+    x = open(file,'r')
+    lines = x.readlines()
+    lines = list(map(lambda x:x.strip(),lines))
+    return lines
 
-def FeetToMeters(x):
-    y = float(x*.3048)
-    PrintOutput(y)
-def PolarCoords(x,y):
-    import math
-    x = float(x)
-    y = float(y)
-    r = math.sqrt((x**2)+(y**2))
-    theta = math.atan(y/x)
-    theta = (theta * 180)/3.141592
-    theta = round(theta,1)
-    PrintOutput2('r:',r)
-    PrintOutput2('theta:',theta)
+def UpdateString(s, l, n):
+    mylist = []
+    for i in range(len(s)):
+        mylist.append(s[i])
+    mylist[n] = l
+    s = ''.join(map(str, mylist))
+    print('OUTPUT',s)
     
-def EurosToDollars(x):
-    x = x*1.12
-    x = round(x,2)
-    PrintOutput(x)
+def FindWordCount(list1,string):
+    count = 0
+    list1 = (''.join(list1))
+    list1 = list1.split()
+    for word in list1:
+        if word == string:
+            count += 1
+    return count
+    
+def ScoreFinder(players,scores,name):
+    namelist = []
+    for i in range(len(name)):
+        namelist.append(name[i])
+    namelist[0] = namelist[0].upper()
+    namestring = ''.join(map(str, namelist))
+    x = players.index(namestring)
+    print(namestring,'got a score of',scores[x])
+
+def Union(list1,list2):
+    for i in list1:
+        if list1.count(i) > 1:
+            list1.remove(i)
+    for i in list2:
+        if list2.count(i) > 1:
+            list2.remove(i)
+    for i in list2:
+        list1.append(i)
+    return list1
+
+def Intersection(x,y):
+    newlist = []
+    for word in x:
+        if word in y:
+            newlist.append(word)
+    return newlist
+
+def NotIn(x,y):
+    newlist = []
+    for word in x:
+        if word not in y:
+            newlist.append(word)
+    return newlist
+
+def main():
+    players = ["Mary", "Cody", "Joe", "Jill", "Xai", "Bodo"]
+    scores = [5, 8, 10, 6, 10, 4]
+    players2 = ["Melvin", "Martian", "Baka", "Xai", "Cody"]
+    ScoreFinder(players, scores, "jill")
+    PrintOutput(Union(scores, players))
+    a = LoadFile("alice.txt")
+    PrintOutput(str(FindWordCount(a, "Alice")))
+    PrintOutput(Intersection(players, players2))
+    PrintOutput(NotIn(players2, players))
+
+    
